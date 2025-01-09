@@ -1,13 +1,12 @@
     let cookie = document.getElementById('cookie');
-    let clicker__counter = document.getElementById('clicker__counter');
+    let clickerCounter = document.getElementById('clicker__counter');
     let clicks = 0;
     let clickTime1;
-    let clickTime2 = new Date().getTime();
     let clickSpeed = document.getElementById('click_speed');
     
     cookie.onclick = function () {
         clicks++;
-        clicker__counter.textContent = clicks;
+        clickerCounter.textContent = clicks;
     }
 
     cookie.addEventListener('mousedown', function () {
