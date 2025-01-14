@@ -1,23 +1,23 @@
-    let cookie = document.getElementById('cookie');
-    let clickerCounter = document.getElementById('clicker__counter');
-    let clicks = 0;
-    let clickTime1;
-    let clickSpeed = document.getElementById('click_speed');
+const cookie = document.getElementById('cookie');
+const clickerCounter = document.getElementById('clicker__counter');
+const clickSpeed = document.getElementById('click_speed');
+let clicks = 0;
+let clickTime1 = Date.now();
+
+cookie.onclick = function () {
+    clicks++;
+    clickerCounter.textContent = clicks;
+}
+
+cookie.addEventListener('mousedown', function () {
+    cookie.style.width = '220px';
+});
+
+cookie.addEventListener('mouseup', function () {
+    const clickTime2 = Date.now() - clickTime1;
     
-    cookie.onclick = function () {
-        clicks++;
-        clickerCounter.textContent = clicks;
-    }
+    clickSpeed.textContent = (1000 / clickTime2).toFixed(2);
+    clickTime1 = Date.now();
 
-    cookie.addEventListener('mousedown', function () {
-       clickTime1 = new Date().getTime();
-        cookie.style.width = '220px';
-    });
-
-    cookie.addEventListener('mouseup', function () {
-        let clickSpeed1 = (new Date().getTime() - clickTime1) / 1000;
-        clickSpeed.textContent = clickSpeed1.toFixed(2);
-        cookie.style.width = '200px';
-    });
-
-    
+    cookie.style.width = '200px';
+});
