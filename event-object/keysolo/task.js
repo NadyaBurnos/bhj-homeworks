@@ -17,17 +17,16 @@ class Game {
   }
 
   registerEvents() {
-    document.addEventListener('keydown', () => {
-      let symbol = this.currentSymbol;
-      let enteredSymbol = String.fromCharCode(event.keyCode)
-      if (symbol.textContent.toUpperCase() === enteredSymbol) {
-        this.success();
-      }
-      else {
-        this.fail();
-      }
+    document.addEventListener('keydown', (e) => {
+        let symbol = this.currentSymbol;
+        let enteredSymbol = e.key;
+        if (symbol.textContent === enteredSymbol) {
+            this.success();
+        } else {
+            this.fail();
+        }
     });
-  }
+}
 
   success() {
     if(this.currentSymbol.classList.contains("symbol_current")) this.currentSymbol.classList.remove("symbol_current");
