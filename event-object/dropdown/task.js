@@ -8,8 +8,8 @@ value.addEventListener('click', () => {
 });
 
 items.forEach(item => {
-    item.addEventListener('click', (a) => {
-        a.preventDefault(); 
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
 
         list.classList.remove('dropdown__list_active');
         value.textContent = item.textContent.trim();
